@@ -1,0 +1,177 @@
+html,
+body {
+    margin: 0;
+}
+
+footer {
+    margin-top: 10px;
+    background: #e0cbb0;
+    line-height: 50px;
+    text-align: center;
+    color: rgb(49, 72, 67);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16pt;
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+h2 {
+    color: blue;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+fieldset {
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    padding: 20px;
+    background: #eee8df;
+    color: blue;
+    border-radius: 2%;
+}
+
+input[type="submit"] {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    background: #e0cbb0;
+    border-radius: 10%;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+    color: 5e3306;
+    border: 1px solid #5ee8df;
+    margin-bottom: 5px;
+    ;
+}
+
+select {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #5ee8df;
+    color: red;
+}
+
+textarea {
+    border: 1px solid #5ee8df;
+    border-radius: 2%;
+}
+
+code pre {
+    background-color: #DDDDFF;
+    border: solid 1px #32a1ce;
+    font-size: 18pt;
+    color: #002060;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: #002060;
+}
+
+a:active {
+    color: red;
+}
+
+a:visited {
+    color: #3b5c5a;
+}
+
+a:hover {
+    color: #00ff00;
+    background: #ffff00;
+}
+
+.mail::before {
+    content: '\2709';
+}
+
+
+.mail2::first-letter {
+    font-size: 130%;
+    color: green;
+}
+
+.mail2 {
+    text-align: center;
+}
+
+table {
+    table-layout: fixed;
+    vertical-align: center;
+    text-align: center;
+    border: 1px solid #002060;
+    border-spacing: 2px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+tr, td {
+    border: 1px solid #002060;
+    padding: 3px;
+    font-weight: 600;
+}
+
+tr:nth-child(2n) {
+    background: #e0cbb0;
+}
+
+tr:nth-child(2n-1) {
+    background: #e5a756;
+}
+
+li:first-child {
+    font-weight: bold;
+}
+
+li:last-child {
+    font-style: italic;
+}
+
+h4 {
+    display: none;
+    width: 50%;
+}
+
+.container {
+    background: #DDDDFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.block1 {
+    width: 20%;
+    height: 50px;
+    background: green;
+}
+
+.block2 {
+    width: 20%;
+    height: 100px;
+    background: yellow;
+}
+
+.block3 {
+    width: 20%;
+    height: 150px;
+    background: purple;
+}
+
+.block4 {
+    width: 20%;
+    height: 200px;
+    background: blue;
+}

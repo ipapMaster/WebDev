@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <!-- Шапка сайта -->
+        <ul>
+            <li><a href="/">Главная</a></li>
+            <li><a href="about.html">О нас</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+    </header>
+    <main>
+        <!-- Обратная связь (форма) -->
+        <h1>Контакты</h1>
+        <h2>Форма обратной связи</h2>
+        <p class="mail2">Отправьте <span class="mail">E-mail</span> или заполните форму:</p>
+        <form action="contacts.html" method="get" novalidate>
+            <fieldset>
+                <legend>
+                    <b><i>Напишите нам</i></b>
+                </legend>
+                <label for="name">Как Ваше имя: </label>
+                <input style="margin-left: 5pt;" placeholder="Введите имя здесь" id="name" name="name" type="text" required /><br />
+                <label for="email">Ваш E-mail: </label>
+                <input style="margin-left: 18pt;" placeholder="name@domen.ru" type="email" name="email" id="email" required /><br />
+                <label for="phone">Ваш телефон: </label>
+                <input style="margin-left: 8pt;" placeholder="+71231234567" type="tel" name="phone" id="phone" pattern="^\+7[0-9]{10}$" required /><br />
+                <label for="gender">Ваш пол: </label>
+                <label for="gender1">М</label>
+                <input type="radio" checked name="gender1" id="gender1" value="М"/>
+                <label for="gender2">Ж</label>
+                <input type="radio" name="gender1" id="gender2" value="Ж"/><br />
+                <label for="kind">Тип обращения: </label>
+                <select name="kind" id="kind">
+                    <option value="complain">Жалоба</option>
+                    <option value="question" selected>Вопрос</option>
+                    <option value="other">Другое</option>
+                </select><br />
+                <textarea placeholder="Ваше сообщение" name="message" id="message" cols="50" rows="8"></textarea><br />
+                <label for="agree">Соглашаюсь с правилами: </label>
+                <input checked type="checkbox" name="agree" id="agree" />
+            </fieldset>
+            <input type="submit" value="Отправить" />
+        </form>
+    </main>
+    <footer>
+        <!-- Подвал сайта -->
+        &copy; Наш магазин
+    </footer>
+</body>
+</html>
