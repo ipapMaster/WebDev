@@ -3,6 +3,37 @@ body {
     margin: 0;
 }
 
+.test_block {
+    width: 100px;
+    height: 50px;
+    border: 1px solid #002060;
+    margin: 0 auto;
+}
+
+.image {
+    float: right;
+    margin: 10px;
+    margin-top: 0;
+}
+
+.sidebar {
+    border: 1px solid #e0cbb0;
+    background-color: aliceblue;
+    width: 150px;
+    padding: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+    float: left;
+}
+
+.vcenter {
+    border: 1px solid #fd7303;
+    width: 50px;
+    height: 20px;
+    margin-top: 15px;
+    margin-left: 25px;
+}
+
 footer {
     margin-top: 10px;
     background: #e0cbb0;
@@ -11,6 +42,7 @@ footer {
     color: rgb(49, 72, 67);
     font-family: 'Courier New', Courier, monospace;
     font-size: 16pt;
+    clear: both;
 }
 
 h1 {
