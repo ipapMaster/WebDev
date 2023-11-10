@@ -1,0 +1,65 @@
+@import "_globals.less";
+
+div {
+    background-color: @mainColor;
+}
+
+p {
+    color: @additionalColor;
+}
+
+.btn {
+    display: block;
+    background-color: @mainColor;
+}
+
+.btn_data {
+    &:extend(.btn);
+    border-radius: 5px;
+}
+
+.block {
+    display: block;
+    color: @mainColor;
+    background-color: @additionalColor;
+
+    & .block_red {
+        color: @dangerColor;
+    }
+}
+
+.ex {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+}
+
+.ex_but {
+    .ex;
+    color: @mainColor;
+}
+
+a {
+    text-decoration: none;
+    color: @additionalColor;
+
+    &:hover {
+        color: @dangerColor;
+    }
+
+    &:visited {
+        color: @additionalColor;
+    }
+}
+
+.header {
+    color: @mainColor;
+    font-size: @big;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 0 20px;
+}
+
+@media only screen and (max-width: 320px) {
+    .header {
+        font-size: 22px;
+    }
+}

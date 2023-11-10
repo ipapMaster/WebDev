@@ -1,0 +1,52 @@
+div {
+  background-color: #254567;
+}
+p {
+  color: white;
+}
+.btn,
+.btn_data {
+  display: block;
+  background-color: #254567;
+}
+.btn_data {
+  border-radius: 5px;
+}
+.block {
+  display: block;
+  color: #254567;
+  background-color: white;
+}
+.block .block_red {
+  color: red;
+}
+.ex {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 18px;
+}
+.ex_but {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 18px;
+  color: #254567;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  color: red;
+}
+a:visited {
+  color: white;
+}
+.header {
+  color: #254567;
+  font-size: 40px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding: 0 20px;
+}
+@media only screen and (max-width: 320px) {
+  .header {
+    font-size: 22px;
+  }
+}
