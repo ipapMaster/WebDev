@@ -1,0 +1,38 @@
+html, body, ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+.message {
+  border: 1px solid #000;
+  padding: 0;
+  color: #000;
+}
+
+.block {
+  display: block;
+}
+
+ul,
+ol {
+  text-align: left;
+}
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+  padding-bottom: 0;
+  padding-left: 0;
+}
+
+ul:nth-child(3n+1) {
+  background-color: #00586f;
+}
+
+ul:nth-child(3n+2) {
+  background-color: #006d88;
+}
+
+ul:nth-child(3n+3) {
+  background-color: #0081a2;
+}

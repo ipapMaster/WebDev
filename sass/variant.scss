@@ -1,0 +1,41 @@
+@import 'reset';
+
+.block {
+    @include transform(block)
+}
+
+.message {
+    @extend %inherit;
+}
+
+@mixin does-parent-exist {
+    @if & {
+        &:hover {
+            color: red;
+        }
+    }
+
+    @else {
+        a {
+            color: red;
+        }
+    }
+}
+
+ul,
+ol {
+    text-align: left;
+
+    & & {
+        padding: {
+            bottom: 0;
+            left: 0;
+        }
+    }
+}
+
+@for $i from 1 through 3{
+    ul:nth-child(3n + #{$i}) {
+        background-color: lighten($base-color, $i * 5);
+    }
+}
