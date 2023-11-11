@@ -13,4 +13,18 @@ html, body, ul, ol {
     color: #000;
 }
 
+@mixin does-parent-exist {
+    @if & {
+        &:hover {
+            color: red;
+        }
+    }
+
+    @else {
+        a {
+            color: red;
+        }
+    }
+}
+
 $base-color: #045;

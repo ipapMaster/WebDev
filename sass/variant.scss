@@ -8,20 +8,6 @@
     @extend %inherit;
 }
 
-@mixin does-parent-exist {
-    @if & {
-        &:hover {
-            color: red;
-        }
-    }
-
-    @else {
-        a {
-            color: red;
-        }
-    }
-}
-
 ul,
 ol {
     text-align: left;
@@ -38,4 +24,9 @@ ol {
     ul:nth-child(3n + #{$i}) {
         background-color: lighten($base-color, $i * 5);
     }
+}
+
+p {
+    @include does-parent-exist;
+    cursor: pointer;
 }

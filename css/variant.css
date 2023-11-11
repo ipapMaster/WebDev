@@ -36,3 +36,10 @@ ul:nth-child(3n+2) {
 ul:nth-child(3n+3) {
   background-color: #0081a2;
 }
+
+p {
+  cursor: pointer;
+}
+p:hover {
+  color: red;
+}
