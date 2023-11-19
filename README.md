@@ -10,7 +10,7 @@
 10. Обзор CSS-генераторов: https://tproger.ru/digest/css-code-generators
 11. Документация по LESS (плагин для VS Code - EasyLess): https://lesscss.org/
 12. Документация по Sass (плагин VS Code - Live Sass Compile): https://sass-lang.com/
-13. [Самоучитель по Figma][https://assets.super.so/83bfff20-a177-485b-a5ba-afe3fc16ebf6/files/8cf1c829-3edf-4e15-9d4c-af0868c6055b.pdf] от А. Окунева
+13. [Самоучитель по Figma](https://assets.super.so/83bfff20-a177-485b-a5ba-afe3fc16ebf6/files/8cf1c829-3edf-4e15-9d4c-af0868c6055b.pdf) от А. Окунева
 14. BootStrap: https://getbootstrap.ru/docs/5.3/getting-started/introduction/
 15. Официальная документация по PHP: https://www.php.net/manual/ru/
 16. Справочник по JavaScript и JQuery: https://html5book.ru/javascript-jquery/
