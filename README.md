@@ -13,9 +13,10 @@
 13. [Самоучитель по Figma](https://assets.super.so/83bfff20-a177-485b-a5ba-afe3fc16ebf6/files/8cf1c829-3edf-4e15-9d4c-af0868c6055b.pdf) от А. Окунева
 14. BootStrap: https://getbootstrap.ru/docs/5.3/getting-started/introduction/
 15. Официальная документация по PHP: https://www.php.net/manual/ru/
-16. Справочник по JavaScript и JQuery: https://html5book.ru/javascript-jquery/
-17. Файл настроек VS Code (**settings.json**), как правило, находится тут: c:\Users\имя пользователя\AppData\Roaming\Code\User
-18. Содержимое файла **settings.json** следующее:
+16. Файл .htaccess: https://www.htaccess.su/ - индивидуальная настройка сервера, описание и примеры
+17. Справочник по JavaScript и JQuery: https://html5book.ru/javascript-jquery/
+18. Файл настроек VS Code (**settings.json**), как правило, находится тут: c:\Users\имя пользователя\AppData\Roaming\Code\User
+19. Содержимое файла **settings.json** следующее:
 ```
 {
     "editor.mouseWheelZoom": true,
