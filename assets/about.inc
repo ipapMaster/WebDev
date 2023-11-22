@@ -1,0 +1,2 @@
+<h1>Про нас</h1>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit eius tempora ratione sapiente iusto sint recusandae facere. Tempora laboriosam aliquid cupiditate officiis illum, voluptas temporibus, deleniti quidem vitae vel harum.</p>

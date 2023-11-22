@@ -1,4 +1,3 @@
-<?php include("vars.inc"); ?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -14,7 +13,7 @@
 </head>
 
 <body>
-    <?= $menu; ?>
+    <?= $main_menu; ?>
     <div class="container">
         <?= $content; ?>
     </div>
