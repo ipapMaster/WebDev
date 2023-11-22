@@ -1,22 +1,42 @@
+<?php include("assets/vars.inc"); ?>
 <!DOCTYPE html>
-<?php 
-$world = "Hello world";
-$num = 1; 
-?>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Сайт на PHP</title>
+    <title><?= $title ?></title>
 </head>
 
 <body>
+    <ul>
     <?php
-     echo $world . $num . "<br />"; 
+     /*echo $world . $num . "<br />"; 
      var_dump($world);
      var_dump($num);
+     if($a > $b) {
+        print("Переменная " . $a . " больше чем " . $b);
+     } else {
+        print("Переменная " . $b . " больше чем " . $a);
+     }
+     echo "<br />";
+     print($b > $a ? $b - $a : $a - $b);
+     echo "<br />";
+     print_r($array);
+     $counter = 0;
+     $length = count($array);
+     while($counter < $length) {
+        echo $array[$counter] . "<br />";
+        $counter ++;
+     }
+     foreach($array as $item) {
+        echo $item . "<br />";
+     }*/
+    foreach($menu as $item => $link) {
+        echo "\t<li><a href=\"$link\">$item</a></li>\n";
+    }
     ?>
+    </ul>
 </body>
 
 </html>
