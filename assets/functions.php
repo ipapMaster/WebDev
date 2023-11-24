@@ -60,6 +60,9 @@ function get_content(string $content_file): string
     return file_get_contents($content_file);
 }
 
+/**
+ * @return - результат отправки формы (с файлом)
+ */
 function fbForm(): string
 {
     $uploadPath = $_SERVER["DOCUMENT_ROOT"] . "/upload/";
@@ -85,5 +88,35 @@ function fbForm(): string
         $result .= "Вложений нет!";
     }
     return $result;
+}
+
+/**
+ *  @return Вернёт строку с числом посещений страницы
+ */
+function cookies_test(string $cookie_name): string
+{
+    $visit_count = 1;
+
+    if (isset($_COOKIE[$cookie_name])) {
+        $visit_count += $_COOKIE[$cookie_name];
+    }
+    setcookie($cookie_name, $visit_count, strtotime("+ 1 minutes"));
+    return "<p>Вы проголосовали раз: " . $visit_count . "</p>";
+}
+
+/**
+ *  @return Вернёт строку с числом посещений страницы (за счёт сессии)
+ */
+function session_test(string $session_name): string
+{
+    session_start(); // обязательно
+    $visit_count = 1;
+
+    if (isset($_SESSION[$session_name])) {
+        $visit_count = $_SESSION[$session_name] + 1;
+    }
+    
+    $_SESSION[$session_name] = $visit_count;
+    return "<p>Вы проголосовали (сессия): " . $visit_count . "</p>";
 }
 ?>

@@ -3,5 +3,7 @@ include("assets/functions.php");
 $title = "Наш сайт";
 $main_menu = get_menu($menu);
 $content = get_content("assets/main.inc");
+$content .= cookies_test("votes");
+$content .= session_test("visits");
 include("assets/design.php");
 ?>
