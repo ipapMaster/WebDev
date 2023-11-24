@@ -59,4 +59,31 @@ function get_content(string $content_file): string
 {
     return file_get_contents($content_file);
 }
+
+function fbForm(): string
+{
+    $uploadPath = $_SERVER["DOCUMENT_ROOT"] . "/upload/";
+    $fields = [
+        "username" => "<b>Имя: </b>",
+        "email" => "<b>E-mail: </b>",
+        "textMess" => "<b>Сообщение: </b>",
+    ];
+    $result = "";
+    if ($_POST["sent"]) {
+        foreach ($_POST as $key => $value) {
+            if ($value && $value != "Отправить") {
+                $result .= $fields[$key] . htmlspecialchars($value) . "<br />\n";
+            }
+        }
+    }
+    if ($_FILES["fileUpload"]["name"]) {
+        $uploadFile = $uploadPath . $_FILES["fileUpload"]["name"];
+        if (!move_uploaded_file($_FILES["fileUpload"]["tmp_name"], $uploadFile)) {
+            $result .= "Не удалось загрузить, возможно это атака";
+        }
+    } else {
+        $result .= "Вложений нет!";
+    }
+    return $result;
+}
 ?>
