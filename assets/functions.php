@@ -42,6 +42,25 @@ function get_menu(array $menu): string
         </li>";
         }
     }
+    if (isset($_SESSION["USER"]) && $_SESSION["USER"]["LOGGED"]) {
+        $result .= "<li class=\"nav-item dropdown\">
+        <a class=\"nav-link dropdown-toggle\" href=\"#\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
+          " . $_SESSION["USER"]["NAME"] . "
+        </a>
+        <ul class=\"dropdown-menu\">
+          <li><a class=\"dropdown-item\" href=\"#\">Личный кабинет</a></li>
+          <li><hr class=\"dropdown-divider\"></li>
+          <li><a class=\"dropdown-item\" href=\"logout.html\">Выход</a></li>
+        </ul>
+      </li>";
+    } else {
+        $result .= "<li class=\"nav-item\">
+            <a class=\"nav-link\" href=\"loginform.html\">Войти</a>
+        </li>
+        <li class=\"nav-item\">
+            <a class=\"nav-link\" href=\"register.html\">Регистрация</a>
+        </li>";
+    }
     $result .= "</ul>
         </div>
     </div>
@@ -109,7 +128,6 @@ function cookies_test(string $cookie_name): string
  */
 function session_test(string $session_name): string
 {
-    session_start(); // обязательно
     $visit_count = 1;
 
     if (isset($_SESSION[$session_name])) {

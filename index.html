@@ -3,7 +3,11 @@ include("assets/functions.php");
 $title = "Наш сайт";
 $main_menu = get_menu($menu);
 $content = get_content("assets/main.inc");
-$content .= cookies_test("votes");
-$content .= session_test("visits");
+if (isset($_SESSION["USER"])) {
+    $content .= "Это видно только залогиненным пользователям";
+}
+if (isset($_SESSION["USER"]) && $_SESSION["USER"]["LEVEL"] == 2) {
+    $content .= "<br>Это видно только админу";
+}
 include("assets/design.php");
 ?>

@@ -1,0 +1,14 @@
+<?php
+include("assets/functions.php");
+$title = "Выход из профиля";
+$main_menu = get_menu($menu);
+if (isset($_SESSION["USER"])) {
+    $content = "<h2>" . $_SESSION["USER"]["NAME"] . ", Вы вышли из своего аккаунта.</h2>";
+    $_SESSION["USER"] = array();
+    unset($_SESSION["USER"]);
+    session_destroy();
+    $page = "refresh: 1, url=" . $_SERVER["HTTP_REFERER"];
+    header($page);
+}
+include("assets/design.php");
+?>
