@@ -30,7 +30,7 @@ function get_menu(array $menu): string
             <span class=\"navbar-toggler-icon\"></span>
         </button>
         <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">
-            <ul class=\"navbar-nav me-auto mb-2 mb-lg-0\">";
+            <ul class=\"navbar-nav me-2 ms-auto mb-2 mb-lg-0\">";
     foreach ($menu as $item => $link) {
         if ($link == $page) {
             $result .= "<li class=\"nav-item\">
@@ -61,7 +61,13 @@ function get_menu(array $menu): string
             <a class=\"nav-link\" href=\"register.html\">Регистрация</a>
         </li>";
     }
-    $result .= "</ul>
+    $result .= "<a href=\"basket.php\" type=\"button\" class=\"btn btn-outline-secondary btn-sm position-relative\">Корзина
+    <span class=\"position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger\">";
+    if(isset($_SESSION["BASKET"]))
+        $result .= count($_SESSION["BASKET"]);
+    $result .= "</span>
+  </a>
+    </ul>
         </div>
     </div>
 </nav>";
