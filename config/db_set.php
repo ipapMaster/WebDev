@@ -1,6 +1,6 @@
 <?php
-define("SERVER_NAME", "localhost:3307");
+define("SERVER_NAME", "localhost:3306");
 define("USERNAME", "root");
 define("PASSWORD", "123");
-define("DATABASE", "localsite");
+define("DATABASE", "shop");
 ?>
