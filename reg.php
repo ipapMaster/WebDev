@@ -31,6 +31,7 @@ if (isset($_POST["sent"])) {
         $regtime = date("Y-m-d H:i:s");
         mysqli_query($link, "INSERT INTO users SET NAME='" . $name . "', EMAIL='" . $email . "', PASS='" . $password . "', LEVEL='" . $level . "', REGTIME='" . $regtime . "'") or die(mysqli_error($link));
         $content = "<h2>Вы успешно прошли регистрацию. Теперь войдите</h2>";
+        //send_mail($email....);
         header("refresh: 1, url=loginform.html");
         //exit();
     } else {

@@ -10,11 +10,17 @@ require_once("config/connect.php");
 
 $email = htmlspecialchars(trim($_POST["userEmail"]));
 
-$query = mysqli_query($link,"SELECT * FROM users WHERE EMAIL='".mysqli_real_escape_string($link, $email)."'");
-$userdata = mysqli_fetch_assoc($query);
-$userID = $userdata["ID"];
-$userName = $userdata["NAME"];
-$userEmail = $userdata["EMAIL"]; // логин
-$userLevel = $userdata["LEVEL"]; // сделаем пока админом
-$userPass = $userdata["PASS"];
+$qResult = true;
+
+$query = mysqli_query($link, "SELECT * FROM users WHERE EMAIL='".mysqli_real_escape_string($link, $email)."'");
+if(mysqli_num_rows($query) == 0) {
+    $qResult = false;
+} else {
+    $userdata = mysqli_fetch_assoc($query);
+    $userID = $userdata["ID"];
+    $userName = $userdata["NAME"];
+    $userEmail = $userdata["EMAIL"]; // логин
+    $userLevel = $userdata["LEVEL"]; // сделаем пока админом
+    $userPass = $userdata["PASS"];
+}
 ?>
