@@ -62,7 +62,7 @@ function get_menu(array $menu): string
         </li>";
     }
     $result .= "<a href=\"basket.php\" type=\"button\" class=\"btn btn-outline-secondary btn-sm position-relative\">Корзина
-    <span class=\"position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger\">";
+    <span class=\"position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success\">";
     if(isset($_SESSION["BASKET"]))
         $result .= count($_SESSION["BASKET"]);
     $result .= "</span>
@@ -142,5 +142,13 @@ function session_test(string $session_name): string
     
     $_SESSION[$session_name] = $visit_count;
     return "<p>Вы проголосовали (сессия): " . $visit_count . "</p>";
+}
+
+function send_mail($to, $from, $subject, $message, $headers) {
+    $headers = "Content-type: text/html; charset=utf-8\r\n";
+    $headers .= "From: От кого письмо <{$from}>\r\n";
+    $headers .= "Reply-To: {$from}\r\n";
+    $result = mail($to, $subject, $message, $headers);
+    return $result;
 }
 ?>
