@@ -1,0 +1,15 @@
+<?php
+include("assets/functions.php");
+$title = "Тестируем Java Script";
+$main_menu = get_menu($menu);
+$content = "<h1>Тестируем клиентские скрипты</h1>";
+$content .= "<button id=\"getPopup\">Купить</button>";
+$content .= "
+<div id=\"popup\" class=\"popup\">
+    <div class=\"popup-content\">
+        <button class=\"close\"></button>
+        <p>Товар добавлен в корзину!<br />Продолжить покупки!</p>
+    </div>
+</div>";
+include("assets/design.php");
+?>
