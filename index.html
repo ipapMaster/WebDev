@@ -1,57 +1,42 @@
-<!DOCTYPE html>
-<html lang="ru">
-<!-- DOM - Document Object Model -->
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Мой первый сайт</title>
-</head>
-
-<body>
-    <header>
-        <!-- Шапка сайта -->
-        <ul>
-            <li><a href="/">Главная</a></li>
-            <li><a href="about.html">О нас</a></li>
-            <li><a href="catalog.html">Каталог</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
-        </ul>
-    </header>
-    <main>
-        <h1 id="alt">Заголовок</h1>
-        <p>Это текст <b>жирный</b> и <strong>важный</strong></p>
-        <p>Это текст <i>наклонный</i> и <em>выделенный</em></p>
-        <p>Это текст <u>подчёркнутый</u><br />и <ins>обновлённый</ins></p>
-        <p>Это текст <s>зачёркнутый</s> и <del>удалённый</del></p>
-        <p>Это - формула воды: H<sub>2</sub>O</p>
-        <p>Y = X<sup>2</sup></p>
-        <code>
-            <b>
-                <pre>
-                print('Hello World')
-                </pre>
-            </b>
-        </code>
-        <h3>Сестринский селектор</h3>
-        <p>Это важно знать.</p>
-        <p>Такой он - сестринский</p> <!-- наклонным не будет -->
-
-        <hr noshade title="на меня навели мышь" align="center" width="50%" size="5" />
-
-        <p align="center">
-            <img src="images/house.jpg" width="300" alt="Тут была бы картинка, но не нашлась" title="Это дом мечты" />
-        </p>
-        <a href="https://yandex.ru">Яндекс</a>
-        <a href="about.html">О нас</a>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, optio.</p>
-    </main>
-    <footer>
-        <!-- Подвал сайта -->
-        &copy; Наш магазин
-    </footer>
-</body>
-
-</html>
+<?php
+include("assets/functions.php");
+$title = "Наш сайт";
+$main_menu = get_menu($menu);
+$arPict = scandir("./carousel");
+$content = get_content("assets/main.inc");
+$content .= "<div id=\"carouselExampleInterval\" class=\"carousel slide\" data-bs-ride=\"carousel\">
+    <div class=\"carousel-inner\">";
+$first = true;
+foreach($arPict as $pict) {
+    if($pict == "." || $pict == "..")
+        continue;
+    if($first) {
+        $content .= "<div class=\"carousel-item active\" data-bs-interval=\"2000\">
+        <img src=\"carousel/{$pict}\" class=\"d-block\" alt=\"{$pict}\">
+      </div>";
+      $first = false;
+    } else {
+        $content .= "<div class=\"carousel-item\" data-bs-interval=\"1000\">
+        <img src=\"carousel/{$pict}\" class=\"d-block\" alt=\"{$pict}\">
+      </div>";
+    }
+}
+$content .= "     
+    </div>
+    <button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#carouselExampleInterval\" data-bs-slide=\"prev\">
+      <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>
+      <span class=\"visually-hidden\">Предыдущий</span>
+    </button>
+    <button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#carouselExampleInterval\" data-bs-slide=\"next\">
+      <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>
+      <span class=\"visually-hidden\">Следующий</span>
+    </button>
+  </div>";
+if(isset($_SESSION["USER"]) && $_SESSION["USER"]["LOGGED"]) {
+    $content .= "Это видно только залогиненным пользователям";
+}
+if(isset($_SESSION["USER"]) && $_SESSION["USER"]["LEVEL"] == 2) {
+    $content .= "<br>Это видно только админу";
+}
+include("assets/design.php");
+?>

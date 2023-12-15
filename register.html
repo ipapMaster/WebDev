@@ -1,0 +1,9 @@
+<?php
+include("assets/functions.php");
+$title = "Форма регистрации";
+$main_menu = get_menu($menu);
+if (isset($_SESSION["USER"]) && $_SESSION["USER"]["LOGGED"])
+    header("Location: index.html");
+$content = get_content("assets/register.inc");
+include("assets/design.php");
+?>

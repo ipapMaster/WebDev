@@ -1,0 +1,26 @@
+<?php
+require_once("config/connect.php");
+include("assets/functions.php");
+$title = "Наша продукция";
+$main_menu = get_menu($menu);
+$query = mysqli_query($link, "SELECT * FROM products");
+$content = "<h1>{$title}</h1><br />";
+$content .= "<div class=\"row row-cols-1 row-cols-lg-2 row-cols-xl-4 gx-5 gy-5\">";
+while ($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+    $content .= "<div class=\"col\"><div class=\"card\" style=\"width: 14rem;\">
+    <img src=\"images/{$row["PICT"]}\" class=\"card-img-top\" alt=\"{$row["NAME"]}\">
+    <div class=\"card-body\">
+      <h4 class=\"card-title text-primary text-end\">{$row["PRICE"]} &#8381;</h4>
+      <h5 class=\"card-title\">{$row["NAME"]}</h5>
+      <p class=\"card-text\">{$row["SDESCR"]}</p><br />
+      <a href=\"product.php?id={$row["ID"]}\">Подробнее</a><br /><br />
+      <button product_id=\"{$row["ID"]}\" class=\"btn btn-primary\" onclick=\"buy(this);\">Купить</button>
+    </div>
+  </div>
+  </div>";
+}
+$content .= "</div>";
+mysqli_close($link);
+//<a href=\"buy.php?product={$row["ID"]}\" class=\"btn btn-primary\">Купить</a>
+include("assets/design.php");
+?>

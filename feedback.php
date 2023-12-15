@@ -1,7 +1,7 @@
-<?php
+<?php 
 include("assets/functions.php");
-$title = "О нас";
+$title = "Обратная связь";
 $main_menu = get_menu($menu);
-$content = get_content("assets/about.inc");
+$content = fbForm();
 include("assets/design.php");
 ?>
