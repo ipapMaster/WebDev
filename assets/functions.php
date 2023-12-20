@@ -61,8 +61,8 @@ function get_menu(array $menu): string
             <a class=\"nav-link\" href=\"register.html\">Регистрация</a>
         </li>";
     }
-    $result .= "<a href=\"basket.php\" type=\"button\" class=\"btn btn-outline-secondary btn-sm position-relative\">Корзина
-    <span class=\"position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success\">";
+    $result .= "<a href=\"getbasket.php\" type=\"button\" class=\"btn btn-outline-secondary btn-sm position-relative\">Корзина
+    <span id=\"basketBadge\" class=\"position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success\">";
     if(isset($_SESSION["BASKET"]))
         $result .= count($_SESSION["BASKET"]);
     $result .= "</span>

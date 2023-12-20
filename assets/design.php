@@ -17,13 +17,19 @@
     <div class="container">
         <?= $content; ?>
     </div>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <button class="close"></button>
+            <p>Товар добавлен в корзину!<br />Продолжить покупки!</p>
+        </div>
+    </div>
     <footer class="d-flex bg-warning bg-opacity-25 justify-content-center align-items-center py-3 my-4 border-top">
         <p class="mb-0 text-muted">&copy; 2023 Company, Inc</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>   
+    <script src="js/script.js"></script>
 </body>
 
 </html>

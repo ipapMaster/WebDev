@@ -46,5 +46,8 @@ h2 {
 
 .close::before {
     content: "X";
+}
 
+.qty {
+    width: 35pt;
 }

@@ -14,12 +14,13 @@ while ($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
       <h5 class=\"card-title\">{$row["NAME"]}</h5>
       <p class=\"card-text\">{$row["SDESCR"]}</p><br />
       <a href=\"product.php?id={$row["ID"]}\">Подробнее</a><br /><br />
-      <a href=\"buy.php?product={$row["ID"]}\" class=\"btn btn-primary\">Купить</a>
+      <button product_id=\"{$row["ID"]}\" class=\"btn btn-primary\" onclick=\"buy(this);\">Купить</button>
     </div>
   </div>
   </div>";
 }
 $content .= "</div>";
 mysqli_close($link);
+//<a href=\"buy.php?product={$row["ID"]}\" class=\"btn btn-primary\">Купить</a>
 include("assets/design.php");
 ?>
