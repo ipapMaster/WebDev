@@ -23,6 +23,7 @@
 }
 ```
 и из консоли, в заранее выбранной директории (где расположенJSON-файл), выполнить: `composer install`
+
 19. Файл .htaccess: https://www.htaccess.su/ - индивидуальная настройка сервера, описание и примеры
 20. Современный учебник Java Script: https://learn.javascript.ru/
 21. Справочник по JavaScript и JQuery: https://html5book.ru/javascript-jquery/
