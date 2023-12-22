@@ -20,7 +20,7 @@
     <div id="popup" class="popup">
         <div class="popup-content">
             <button class="close"></button>
-            <p>Товар добавлен в корзину!<br />Продолжить покупки!</p>
+            <p id="addToBasket">Товар добавлен в корзину!<br />Продолжить покупки!</p>
         </div>
     </div>
     <footer class="d-flex bg-warning bg-opacity-25 justify-content-center align-items-center py-3 my-4 border-top">
