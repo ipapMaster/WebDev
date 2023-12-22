@@ -20,14 +20,14 @@
   "require": {
     "gabordemooij/redbean": "dev-master"
   }
-}```
+}
+```
 и из консоли, в заранее выбранной директории (где расположенJSON-файл), выполнить: `composer install`
-19. 
-20. Файл .htaccess: https://www.htaccess.su/ - индивидуальная настройка сервера, описание и примеры
-21. Современный учебник Java Script: https://learn.javascript.ru/
-22. Справочник по JavaScript и JQuery: https://html5book.ru/javascript-jquery/
-23. Файл настроек VS Code (**settings.json**), как правило, находится тут: c:\Users\имя пользователя\AppData\Roaming\Code\User
-24. Содержимое файла **settings.json** следующее:
+19. Файл .htaccess: https://www.htaccess.su/ - индивидуальная настройка сервера, описание и примеры
+20. Современный учебник Java Script: https://learn.javascript.ru/
+21. Справочник по JavaScript и JQuery: https://html5book.ru/javascript-jquery/
+22. Файл настроек VS Code (**settings.json**), как правило, находится тут: c:\Users\имя пользователя\AppData\Roaming\Code\User
+23. Содержимое файла **settings.json** следующее:
 ```
 {
     "editor.mouseWheelZoom": true,
