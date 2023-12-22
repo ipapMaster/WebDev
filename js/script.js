@@ -1,15 +1,27 @@
 let basketkey = "shopBasket";
 
 const popup = document.querySelector(".popup");
-//const buy = document.querySelector("#getPopup");
 const close_btn = document.querySelector(".close");
 const basketTable = document.getElementById('basket');
 const basketBadge = document.getElementById('basketBadge');
-const sendBasket = document.querySelector(".sendbasket");
+const messAbout = document.getElementById('addToBasket');
+const sendbasket = document.querySelector(".sendbasket");
 
+function setBadge() {
+    let temp = getBasket();
+    if (temp) {
+        basketBadge.innerHTML = getCount();
+    }
+    else {
+        if (sendbasket)
+            sendbasket.remove();
+        basketBadge.remove();
+    }
+}
 
 function popup_close() {
     popup.style.display = 'none';
+    setBadge();
 }
 
 function saveBasket(items) {
@@ -49,7 +61,7 @@ function deleteItem(elem) {
 }
 
 function showBasket(items) {
-    if(!items) {
+    if (!items) {
         basketTable.innerHTML = "<h2>Тут пока пусто!!!</h2>";
         return;
     }
@@ -60,18 +72,17 @@ function showBasket(items) {
     let headBasketTr = document.createElement("tr");
     headBasketTr.innerHTML = "<thead>" +
         "<tr class=\"text-center\">" +
-            "<th scope=\"col\">#</th>" +
-            "<th scope=\"col\">Продукт</th>" +
-            "<th scope=\"col\">Описание</th>" +
-            "<th scope=\"col\">&nbsp;</th>" +
-            "<th scope=\"col\">Цена за ед., руб.</th>" +
-            "<th scope=\"col\">Кол-во, ед.</th>" +
-            "<th scope=\"col\">Всего, руб.</th>" +
-            "<th scope=\"col\">&nbsp;</th>" +
-            "</tr>" +
+        "<th scope=\"col\">#</th>" +
+        "<th scope=\"col\">Продукт</th>" +
+        "<th scope=\"col\">Описание</th>" +
+        "<th scope=\"col\">&nbsp;</th>" +
+        "<th scope=\"col\">Цена за ед., руб.</th>" +
+        "<th scope=\"col\">Кол-во, ед.</th>" +
+        "<th scope=\"col\">Всего, руб.</th>" +
+        "<th scope=\"col\">&nbsp;</th>" +
+        "</tr>" +
         "</thead>";
     newTable.append(headBasketTr);
-   
     for (let item of items) {
         count++;
         let innerBasketTr = document.createElement("tr");
@@ -83,27 +94,30 @@ function showBasket(items) {
             "<td><input type=\"number\" class=\"qty\" min=\"1\" id=\"" + item['ID'] + "\" value=\"" + item['COUNT'] + "\" onChange=\"changeQty(this);\" /></td>" +
             "<td>" + item['PRICE'] * item['COUNT'] + "</td>" +
             "<td><a style=\"text-decoration: none;\" href=\"#\" onclick=\"deleteItem(this);\" id=\"" + item['ID'] + "\">&#128465;</a></td>";
-            newTable.append(innerBasketTr);
+        newTable.append(innerBasketTr);
         total += item['PRICE'] * item['COUNT'];
     }
     let newBasketTr = document.createElement("tr");
     newBasketTr.innerHTML = "<td colspan=\"6\"><b>Итого: </b></td>" +
         "<td colspan=\"2\"><b>" + total + "</b></td>";
-        newTable.append(newBasketTr);
+    newTable.append(newBasketTr);
     basketTable.innerHTML = newTable.outerHTML;
+    setBadge();
 }
+
 
 close_btn.onclick = function () {
     popup.style.display = 'none';
-    // items = getBasket();
-    // showBasket(items);
+    basketBadge.innerHTML = getCount();
 }
 
 function getCount() {
     items = getBasket();
     let count = 0;
-    for (let index = 0; index < items.length; index++) {
-        count++;
+    if (items) {
+        for (let index = 0; index < items.length; index++) {
+            count++;
+        }
     }
     return count;
 }
@@ -116,9 +130,8 @@ function inBasket(id, items) {
     return -1;
 }
 
-if (document.location.pathname == "/getbasket.php") {
-    items = getBasket();
-    basketBadge.innerHTML = getCount(items);
+if (document.location.pathname.slice(1) == "getbasket.php") {
+    basketBadge.innerHTML = getCount();
     showBasket(items);
 }
 
@@ -135,31 +148,32 @@ function buy(elem_data) {
         res['COUNT'] = 1;
         items = [];
         items.push(res);
-        saveBasket(items);
     } else {
         let temp = inBasket(pr_id, items);
         if (temp == -1) {
             res['COUNT'] = 1;
             items.push(res);
-            saveBasket(items);
         }
         else {
             items[temp]['COUNT']++;
-            saveBasket(items);
         }
     }
+    saveBasket(items);
+    messageInfo = "Товар \"<b>" + res['NAME'] + "</b>\" добавлен в корзину!<br />";
+    messageInfo += "Позиций в корзине: <b>" + getCount(getBasket()) + "</b>";
+    messAbout.innerHTML = messageInfo;
     popup.style.display = 'block';
 }
 
 function gatherInfo(info_id) {
     send_id = info_id.getAttribute("snd_id");
-    if(send_id == "sendBasket") {
-        let data = localStorage.getItem(basketkey); // корзина
-        let my_form = document.createElement("form"); // форма
+    if (send_id == "sendBasket") {
+        let data = localStorage.getItem(basketkey);
+        my_form = document.createElement("form");
         my_form.name = "order";
         my_form.method = "POST";
         my_form.action = "order.php";
-        let my_tb = document.createElement("input");
+        my_tb = document.createElement("input");
         my_tb.type = "hidden";
         my_tb.name = "basket";
         my_tb.value = data;
@@ -167,16 +181,13 @@ function gatherInfo(info_id) {
         sendForm.appendChild(my_form);
         my_form.submit();
     }
-    //localStorage.clear(); // полная очистка localStorage
+    localStorage.clear();
 }
 
+// Выполняется при каждой загрузке любой страницы
+setBadge();
+
 //console.log('Наш ID:', pr_id);
-
-
-// buy.onclick = function () {
-//     popup.style.display = 'block';
-//     //setTimeout(popup_close, 10000);
-// }
 
 // window.onclick = function (event) {
 //     if (event.target == popup) {
